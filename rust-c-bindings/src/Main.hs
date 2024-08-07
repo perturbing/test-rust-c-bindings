@@ -6,11 +6,10 @@ import System.IO (hFlush, stdout)
 -- Function to prompt the user for an integer
 promptForInt :: String -> IO Int
 promptForInt prompt =
-    do putStr prompt
-      hFlush
-      stdout
-      read
-        <$> getLine
+    do
+        putStr prompt
+        hFlush stdout
+        read <$> getLine
 
 main :: IO ()
 main = do
