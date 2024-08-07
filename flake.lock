@@ -1234,11 +1234,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1723022480,
-        "narHash": "sha256-8S8TEFQR2Twyazgkf5Wm4qyA7n/bpexclRlA9ZKNZgQ=",
+        "lastModified": 1723023230,
+        "narHash": "sha256-SeFD3oZP3TmuXOsooWSgDGg79msTVRDFJTSGC+4mt30=",
         "owner": "perturbing",
         "repo": "test-rust-project",
-        "rev": "04a7d33dab171b19177208f152bc169d19fd3128",
+        "rev": "b5dcab4e846ed075dd2de082a2464204cb9eeea9",
         "type": "github"
       },
       "original": {
