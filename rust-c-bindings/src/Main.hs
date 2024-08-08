@@ -1,25 +1,14 @@
 module Main where
 
-import MyBindings (addViaC)
+import Cardano.Crypto.EllipticCurve.BLS12_381.Internal (Scalar (..), frFromScalar, scalarFromFr, scalarFromInteger, scalarToInteger)
+import MyBindings (doubleFr)
 import System.IO (hFlush, stdout)
-
--- Function to prompt the user for an integer
-promptForInt :: String -> IO Int
-promptForInt prompt =
-    do
-        putStr prompt
-        hFlush stdout
-        read <$> getLine
 
 main :: IO ()
 main = do
-    -- Prompt the user for two integers
-    putStrLn "Hello, Haskell!"
-    x <- promptForInt "Enter the first integer: "
-    y <- promptForInt "Enter the second integer: "
-
-    -- Call the addViaC function
-    let result = addViaC x y
-
-    -- Print the result
-    putStrLn $ "The result of adding " ++ show x ++ " and " ++ show y ++ " via the C binding is: " ++ show result
+    scalar <- scalarFromInteger 27125923900743449446737244713810001155895196669447159259758142105625740449839
+    fr <- frFromScalar scalar
+    resultFr <- doubleFr fr
+    resultScalar <- scalarFromFr resultFr
+    y <- scalarToInteger resultScalar
+    putStrLn $ "The random scalar via the C binding is: " ++ show y
