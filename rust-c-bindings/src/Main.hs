@@ -6,7 +6,7 @@ import System.IO (hFlush, stdout)
 
 main :: IO ()
 main = do
-    scalar <- scalarFromInteger 27125923900743449446737244713810001155895196669447159259758142105625740449839
+    scalar <- scalarFromInteger 1
     fr <- frFromScalar scalar
     resultFr <- doubleFr fr
     resultScalar <- scalarFromFr resultFr
