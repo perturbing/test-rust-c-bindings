@@ -25,13 +25,13 @@ doubleFr (Fr fp) = withForeignPtr fp $ \ptr -> do
     originalValues <- viewBytes ptr sizeFr
     putStrLn $ "Original Values: " ++ show originalValues
 
-    resultPtr <- c_random_scalar (castPtr ptr)
+    resultPtr <- c_random_scalar ptr
     if resultPtr == nullPtr
         then putStrLn "Received null pointer back from Rust function!"
         else putStrLn $ "Result Pointer is valid: " ++ show resultPtr
 
-    resultValues <- viewBytes (castPtr resultPtr) sizeFr
+    resultValues <- viewBytes resultPtr sizeFr
     putStrLn $ "Result Values: " ++ show resultValues
 
-    resultFp <- newForeignPtr finalizerFree (castPtr resultPtr :: Ptr Void)
-    return (Fr (castForeignPtr resultFp))
+    resultFp <- newForeignPtr finalizerFree resultPtr
+    return (Fr resultFp)
