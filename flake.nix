@@ -1,5 +1,5 @@
 {
-  description = "A benchmark to see how efficient poseidon is for different configuration ";
+  description = "A test haskell project that import C bindings generated from rust";
 
   inputs = {
     iogx = {
@@ -11,8 +11,6 @@
     };
 
     nixpkgs.follows = "haskell-nix/nixpkgs";
-
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     hackage = {
       url = "github:input-output-hk/hackage.nix";
@@ -32,7 +30,6 @@
     test-rust-c-bindings.url = "github:perturbing/test-rust-project";
 
   };
-
 
   outputs = inputs: inputs.iogx.lib.mkFlake {
     inherit inputs;
