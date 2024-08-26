@@ -24,5 +24,7 @@ test-suite rust-c-bindings-test
   main-is:          Main.hs
   build-depends:
     , base >=4.2 && <5
+    , bytestring
     , cardano-crypto-class
+    , hedgehog
     , rust-c-bindings-lib
